@@ -17,7 +17,13 @@ will be calculated}
 Function to calculate the RV coefficient between sets of variables
 }
 \examples{
-RV_table(data, sets = list(1:3, 4:5, 6:7))
+data(wine)                                    
+i <- grep("V", colnames(wine))                
+data <- wine[,i]                              
+sets <- list(1:6, 7:12, 13:18, 19:23, 24:29,  
+            30:34, 35:38, 39:44, 45:49, 50:53)
+MFA <- mfa(data, sets)
+RV_table(MFA, sets = list(1:6, 19:23, 24:29))
 }
 \keyword{RV}
 \keyword{measure}

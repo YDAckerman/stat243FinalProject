@@ -10,28 +10,32 @@
 #' @param scale - logical value: should the data be scaled?
 #' @param ids - optional character vector of row names
 #' @param color - optional character vector for mapping a discrete color scale
-#' @return an mfa object contaning the pieces of the resulting analysis:
-#'            lambda - the eigenvalues of the compromise
-#'            commonFactorScores - the common factor scores
-#'            partialFactorScores - the partial factor scores
-#'            Q - a matrix of the loadings
-#'            P - the compromise matrix
-#'        In addition, the object with have 8 attributes:
-#'                ncomps - number of components to return while printing 
-#'                ids - the sample ids
-#'                sets - the original list of groups
-#'                colWeights - the vector 'a' of column weights
-#'                rowWeights - the vector 'm' of row weights
-#'                var_names - the variable names
-#'                color - colors for plotting purposes
-#'                boot - a space for optional bootstrapped data
+#' @return an mfa object (list) contaning the pieces of the resulting analysis:
+#' @return \code{lambda} - the eigenvalues of the compromise
+#' @return \code{commonFactorScores} - the common factor scores
+#' @return \code{partialFactorScores} - the partial factor scores
+#' @return \code{Q} - a matrix of the loadings
+#' @return \code{P} - the compromise matrix
+#' @return In addition, the object with have 8 attributes:
+#' @return \code{ncomps} - number of components to return while printing
+#' @return \code{ids} - the sample ids
+#' @return \code{sets} - the original list of groups
+#' @return \code{colWeights} - the vector 'a' of column weights
+#' @return \code{rowWeights} - the vector 'm' of row weights
+#' @return \code{var_names} - the variable names
+#' @return \code{color} - colors for plotting purposes
+#' @return \code{boot} - a space for optional bootstrapped data
 #' @examples
 #' data(wine)                                    
 #' i <- grep("V", colnames(wine))                
-#' data <- wine[,i]                              
-#' sets <- list(1:6, 7:12, 13:18, 19:23, 24:29,  
-#'             30:34, 35:38, 39:44, 45:49, 50:53)
-#' MFA <- mfa(data, sets)            
+#' wine_ratings <- wine[,i]                              
+#' expert_sets <- list(1:6, 7:12, 13:18, 19:23, 24:29,  
+#'                     30:34, 35:38, 39:44, 45:49, 50:53)
+#' wine_region <- substr(wine$ID, 1, 2)
+#' wine_names <- as.character(wine$ID)
+#' MFA <- mfa(data = wine_ratings, sets = expert_sets
+#'           , color = wine_region, ids = wine_names)
+#' plot(MFA)      
 #' @export
 mfa <- function(data, sets, ncomps = 2, weights = NULL,
                 center = TRUE, scale = TRUE, ids = NULL

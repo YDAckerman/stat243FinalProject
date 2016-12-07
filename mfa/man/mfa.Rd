@@ -26,23 +26,49 @@ corresponding to each block}
 \item{color}{- optional character vector for mapping a discrete color scale}
 }
 \value{
-an mfa object contaning the pieces of the resulting analysis:
-           lambda - the eigenvalues of the compromise
-           commonFactorScores - the common factor scores
-           partialFactorScores - the partial factor scores
-           Q - a matrix of the loadings
-           P - the compromise matrix
-       In addition, the object with have 8 attributes:
-               ncomps - number of components to return while printing 
-               ids - the sample ids
-               sets - the original list of groups
-               colWeights - the vector 'a' of column weights
-               rowWeights - the vector 'm' of row weights
-               var_names - the variable names
-               color - colors for plotting purposes
-               boot - a space for optional bootstrapped data
+an mfa object (list) contaning the pieces of the resulting analysis:
+
+\code{lambda} - the eigenvalues of the compromise
+
+\code{commonFactorScores} - the common factor scores
+
+\code{partialFactorScores} - the partial factor scores
+
+\code{Q} - a matrix of the loadings
+
+\code{P} - the compromise matrix
+
+In addition, the object with have 8 attributes:
+
+\code{ncomps} - number of components to return while printing
+
+\code{ids} - the sample ids
+
+\code{sets} - the original list of groups
+
+\code{colWeights} - the vector 'a' of column weights
+
+\code{rowWeights} - the vector 'm' of row weights
+
+\code{var_names} - the variable names
+
+\code{color} - colors for plotting purposes
+
+\code{boot} - a space for optional bootstrapped data
 }
 \description{
 Perform multiple factor analysis
+}
+\examples{
+data(wine)                                    
+i <- grep("V", colnames(wine))                
+wine_ratings <- wine[,i]                              
+expert_sets <- list(1:6, 7:12, 13:18, 19:23, 24:29,  
+                    30:34, 35:38, 39:44, 45:49, 50:53)
+wine_region <- substr(wine$ID, 1, 2)
+wine_names <- as.character(wine$ID)
+MFA <- mfa(data = wine_ratings, sets = expert_sets
+          , color = wine_region, ids = wine_names)
+plot(MFA)      
 }
 

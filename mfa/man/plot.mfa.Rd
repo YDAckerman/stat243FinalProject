@@ -8,6 +8,8 @@
 }
 \arguments{
 \item{mfa}{- the mfa object}
+
+\item{dims}{- the dimensions of the resulting matrices to plot}
 }
 \value{
 a three plots with the projection of each observation onto

@@ -10,6 +10,8 @@ bootstrap(mfa, B = 100, seed = 0)
 \item{mfa}{an mfa object}
 
 \item{B}{the number of bootstrap samples to run}
+
+\item{seed}{a seed for the random number generator}
 }
 \value{
 a copy of the mfa object with the bootstrap as an

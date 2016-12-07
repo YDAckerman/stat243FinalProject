@@ -5,7 +5,7 @@
 #' @param sets - a list containing vectors of variable names/positions
 #'               corresponding to each block
 #' @param ncomps - number of components to report
-#' @param weights -
+#' @param weights - a numeric vector of same length as number of rows in data
 #' @param center - logical value: should the data should be centered?
 #' @param scale - logical value: should the data be scaled?
 #' @param ids - optional character vector of row names

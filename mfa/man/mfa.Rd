@@ -15,7 +15,7 @@ corresponding to each block}
 
 \item{ncomps}{- number of components to report}
 
-\item{weights}{-}
+\item{weights}{- a numeric vector of same length as number of rows in data}
 
 \item{center}{- logical value: should the data should be centered?}
 

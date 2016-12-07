@@ -25,6 +25,13 @@
 #'                var_names - the variable names
 #'                color - colors for plotting purposes
 #'                boot - a space for optional bootstrapped data
+#' @examples
+#' data(wine)                                    
+#' i <- grep("V", colnames(wine))                
+#' data <- wine[,i]                              
+#' sets <- list(1:6, 7:12, 13:18, 19:23, 24:29,  
+#'             30:34, 35:38, 39:44, 45:49, 50:53)
+#' MFA <- mfa(data, sets)            
 #' @export
 mfa <- function(data, sets, ncomps = 2, weights = NULL,
                 center = TRUE, scale = TRUE, ids = NULL

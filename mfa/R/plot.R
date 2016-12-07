@@ -2,6 +2,7 @@
 #'
 #' Create summary plots for the result of the multiple factor analysis
 #' @param mfa - the mfa object
+#' @param dims - the dimensions of the resulting matrices to plot
 #' @return a three plots with the projection of each observation onto
 #'         the first two extracted components, the partial factor scores,
 #'         and the variable loadings

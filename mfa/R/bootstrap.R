@@ -4,6 +4,7 @@
 #' given mfa object
 #' @param mfa an mfa object
 #' @param B the number of bootstrap samples to run
+#' @param seed a seed for the random number generator
 #' @return a copy of the mfa object with the bootstrap as an
 #'         attribute.
 #' @export
